@@ -26,27 +26,44 @@ export default QUnit.module( 'Scenes', () => {
 		} );
 
 		// PROPERTIES
-		QUnit.todo( 'name', ( assert ) => {
+		QUnit.test( 'name', ( assert ) => {
 
-			assert.ok( false, 'everything\'s gonna be alright' );
-
-		} );
-
-		QUnit.todo( 'color', ( assert ) => {
-
-			assert.ok( false, 'everything\'s gonna be alright' );
+			const object = new Fog();
+			assert.ok( object.name === '' );
 
 		} );
 
-		QUnit.todo( 'near', ( assert ) => {
+		QUnit.test( 'color', ( assert ) => {
 
-			assert.ok( false, 'everything\'s gonna be alright' );
+			let object = new Fog();
+			assert.ok( object.color.r, 'Red: ' + object.color.r );
+			assert.ok( object.color.g, 'Green: ' + object.color.g );
+			assert.ok( object.color.b, 'Blue: ' + object.color.b );
+
+			object = new Fog( 0xffffff );
+			assert.ok( object.color.r === 1, 'Passed' );
+			assert.ok( object.color.g === 1, 'Passed' );
+			assert.ok( object.color.b === 1, 'Passed' );
 
 		} );
 
-		QUnit.todo( 'far', ( assert ) => {
+		QUnit.test( 'near', ( assert ) => {
 
-			assert.ok( false, 'everything\'s gonna be alright' );
+			let object = new Fog();
+			assert.ok( object.near === 1, 'Passed' );
+
+			object = new Fog( null, 1000 );
+			assert.ok( object.near === 1000, 'Passed' );
+
+		} );
+
+		QUnit.test( 'far', ( assert ) => {
+
+			let object = new Fog();
+			assert.ok( object.far === 1000, 'Passed' );
+
+			object = new Fog( null, null, 1 );
+			assert.ok( object.far === 1, 'Passed' );
 
 		} );
 
