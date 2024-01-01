@@ -28,45 +28,55 @@ export default QUnit.module( 'Scenes', () => {
 		} );
 
 		// PROPERTIES
-		QUnit.todo( 'type', ( assert ) => {
+		QUnit.test( 'type', ( assert ) => {
 
-			assert.ok( false, 'everything\'s gonna be alright' );
-
-		} );
-
-		QUnit.todo( 'background', ( assert ) => {
-
-			assert.ok( false, 'everything\'s gonna be alright' );
+			const object = new Scene();
+			assert.ok(
+				object.type === 'Scene',
+				'Scene.type should be Scene'
+			);
 
 		} );
 
-		QUnit.todo( 'environment', ( assert ) => {
+		QUnit.test( 'background', ( assert ) => {
 
-			assert.ok( false, 'everything\'s gonna be alright' );
-
-		} );
-
-		QUnit.todo( 'fog', ( assert ) => {
-
-			assert.ok( false, 'everything\'s gonna be alright' );
+			const object = new Scene();
+			assert.ok( object.background === null );
 
 		} );
 
-		QUnit.todo( 'backgroundBlurriness', ( assert ) => {
+		QUnit.test( 'environment', ( assert ) => {
 
-			assert.ok( false, 'everything\'s gonna be alright' );
-
-		} );
-
-		QUnit.todo( 'backgroundIntensity', ( assert ) => {
-
-			assert.ok( false, 'everything\'s gonna be alright' );
+			const object = new Scene();
+			assert.ok( object.environment === null );
 
 		} );
 
-		QUnit.todo( 'overrideMaterial', ( assert ) => {
+		QUnit.test( 'fog', ( assert ) => {
 
-			assert.ok( false, 'everything\'s gonna be alright' );
+			const object = new Scene();
+			assert.ok( object.fog === null );
+
+		} );
+
+		QUnit.test( 'backgroundBlurriness', ( assert ) => {
+
+			const object = new Scene();
+			assert.ok( object.backgroundBlurriness === 0 );
+
+		} );
+
+		QUnit.test( 'backgroundIntensity', ( assert ) => {
+
+			const object = new Scene();
+			assert.ok( object.backgroundIntensity === 1 );
+
+		} );
+
+		QUnit.test( 'overrideMaterial', ( assert ) => {
+
+			const object = new Scene();
+			assert.ok( object.overrideMaterial === null );
 
 		} );
 
