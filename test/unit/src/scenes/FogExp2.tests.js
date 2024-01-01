@@ -26,21 +26,34 @@ export default QUnit.module( 'Scenes', () => {
 		} );
 
 		// PROPERTIES
-		QUnit.todo( 'name', ( assert ) => {
+		QUnit.test( 'name', ( assert ) => {
 
-			assert.ok( false, 'everything\'s gonna be alright' );
-
-		} );
-
-		QUnit.todo( 'color', ( assert ) => {
-
-			assert.ok( false, 'everything\'s gonna be alright' );
+			const object = new FogExp2();
+			assert.ok( object.name === '' );
 
 		} );
 
-		QUnit.todo( 'density', ( assert ) => {
+		QUnit.test( 'color', ( assert ) => {
 
-			assert.ok( false, 'everything\'s gonna be alright' );
+			let object = new FogExp2();
+			assert.ok( object.color.r, 'Red: ' + object.color.r );
+			assert.ok( object.color.g, 'Green: ' + object.color.g );
+			assert.ok( object.color.b, 'Blue: ' + object.color.b );
+
+			object = new FogExp2( 0xffffff );
+			assert.ok( object.color.r === 1, 'Passed' );
+			assert.ok( object.color.g === 1, 'Passed' );
+			assert.ok( object.color.b === 1, 'Passed' );
+
+		} );
+
+		QUnit.test( 'density', ( assert ) => {
+
+			let object = new FogExp2();
+			assert.ok( object.density === 0.00025, 'Passed' );
+
+			object = new FogExp2( null, 0.00030 );
+			assert.ok( object.density === 0.00030, 'Passed' );
 
 		} );
 
